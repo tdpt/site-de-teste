@@ -54,8 +54,8 @@ const DifferentiationSection = () => {
               key={index}
               className="flex items-start gap-4 p-6 rounded-xl bg-primary-foreground/5 border border-primary-foreground/10 hover:bg-primary-foreground/10 transition-colors"
             >
-              <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center flex-shrink-0">
-                <item.icon className="w-6 h-6 text-accent-foreground" />
+              <div className="w-14 h-14 bg-accent rounded-lg flex items-center justify-center flex-shrink-0">
+                <item.icon className="w-8 h-8 text-accent-foreground" strokeWidth={1.5} />
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-primary-foreground mb-2">

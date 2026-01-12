@@ -44,18 +44,18 @@ const Header = () => {
           <img
             src={logoBlue}
             alt="MAGIA"
-            className="h-10 md:h-12 w-auto"
+            className="h-14 md:h-16 w-auto"
           />
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-10">
           {navLinks.map((link) => (
             <button
               key={link.href}
               onClick={() => scrollToSection(link.href)}
-              className={`text-sm font-medium transition-colors hover:text-accent ${
-                isScrolled ? "text-foreground" : "text-foreground"
+              className={`text-base font-semibold uppercase tracking-wide transition-colors hover:text-accent ${
+                isScrolled ? "text-foreground" : "text-white"
               }`}
             >
               {link.label}

@@ -30,8 +30,8 @@ const SectorsSection = () => {
               key={index}
               className="card-elevated p-6 text-center group cursor-default"
             >
-              <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-accent/20 transition-colors">
-                <sector.icon className="w-8 h-8 text-primary group-hover:text-accent transition-colors" />
+              <div className="w-20 h-20 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-accent/20 transition-colors">
+                <sector.icon className="w-10 h-10 text-primary group-hover:text-accent transition-colors" strokeWidth={1.5} />
               </div>
               <h3 className="font-medium text-foreground">{sector.name}</h3>
             </div>

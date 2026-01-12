@@ -51,8 +51,8 @@ const ContactSection = () => {
             {/* Contact Info */}
             <div className="space-y-6 mb-10">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center">
-                  <MapPin className="w-5 h-5 text-primary" />
+                <div className="w-14 h-14 bg-secondary rounded-lg flex items-center justify-center">
+                  <MapPin className="w-6 h-6 text-primary" strokeWidth={1.5} />
                 </div>
                 <div>
                   <div className="font-medium text-foreground">Morada</div>
@@ -63,8 +63,8 @@ const ContactSection = () => {
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center">
-                  <Mail className="w-5 h-5 text-primary" />
+                <div className="w-14 h-14 bg-secondary rounded-lg flex items-center justify-center">
+                  <Mail className="w-6 h-6 text-primary" strokeWidth={1.5} />
                 </div>
                 <div>
                   <div className="font-medium text-foreground">Email</div>
@@ -78,8 +78,8 @@ const ContactSection = () => {
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center">
-                  <Phone className="w-5 h-5 text-primary" />
+                <div className="w-14 h-14 bg-secondary rounded-lg flex items-center justify-center">
+                  <Phone className="w-6 h-6 text-primary" strokeWidth={1.5} />
                 </div>
                 <div>
                   <div className="font-medium text-foreground">Telefone</div>
@@ -103,25 +103,25 @@ const ContactSection = () => {
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-colors"
+                  className="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-colors"
                 >
-                  <Linkedin className="w-5 h-5" />
+                  <Linkedin className="w-6 h-6" strokeWidth={1.5} />
                 </a>
                 <a
                   href="https://instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-colors"
+                  className="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-colors"
                 >
-                  <Instagram className="w-5 h-5" />
+                  <Instagram className="w-6 h-6" strokeWidth={1.5} />
                 </a>
                 <a
                   href="https://facebook.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-colors"
+                  className="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-colors"
                 >
-                  <Facebook className="w-5 h-5" />
+                  <Facebook className="w-6 h-6" strokeWidth={1.5} />
                 </a>
               </div>
             </div>
