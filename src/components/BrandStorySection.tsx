@@ -21,13 +21,13 @@ const BrandStorySection = () => {
 
             <div className="space-y-5 text-muted-foreground leading-relaxed">
               <p>
-                Com origens no mundo da moda e uma especialização em uniformes profissionais desde 1986, a MAGIA combina sensibilidade estética, consistência técnica e uma assinatura distintiva em cada projeto.
+                A Magia nasceu na moda antes de se especializar, em 1986, no universo das fardas e uniformes. Esse histórico capacita-nos hoje com algo raro no setor: sensibilidade estética, consistência técnica, e uma assinatura distinta.
               </p>
               <p>
-                Acreditamos que o fardamento é muito mais do que roupa de trabalho — é identidade, confiança e comunicação direta com os seus clientes. Cada peça que criamos reflete os valores e a essência da sua marca.
+                Acreditamos que uma farda é muito mais do que vestuário - é identidade, confiança e comunicação direta com o cliente. Por isso, criamos peças que traduzem o ADN de cada marca, combinando design, funcionalidade e conforto autêntico no dia-a-dia.
               </p>
               <p>
-                Somos um parceiro único a longo prazo, acompanhando todo o processo desde o conceito inicial até à produção, logística e reposição. A MAGIA está consigo em cada etapa.
+                Da conceção à produção, logística e reposição, trabalhamos como um parceiro único e próximo, simplificando o processo e acompanhando cada cliente ao longo do tempo.
               </p>
             </div>
 
