@@ -2,7 +2,7 @@ import logoWhite from "@/assets/logo-white.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-primary section-padding !py-12">
+    <footer className="bg-primary section-padding !py-12 relative z-10">
       <div className="container-max">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-12">
           {/* Logo & Company Info */}

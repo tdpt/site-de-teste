@@ -44,7 +44,7 @@ const Header = () => {
           <img
             src={logoBlue}
             alt="MAGIA"
-            className="h-14 md:h-16 w-auto"
+            className="h-20 md:h-24 lg:h-28 w-auto"
           />
         </a>
 

@@ -35,7 +35,7 @@ const differentiators = [
 
 const DifferentiationSection = () => {
   return (
-    <section id="diferenciacao" className="bg-primary section-padding">
+    <section id="diferenciacao" className="bg-primary section-padding relative z-10">
       <div className="container-max">
         {/* Header */}
         <div className="text-center mb-16">

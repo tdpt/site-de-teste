@@ -41,7 +41,7 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section id="servicos" className="bg-secondary section-padding">
+    <section id="servicos" className="bg-secondary section-padding relative z-10">
       <div className="container-max">
         {/* Header */}
         <div className="text-center mb-16">

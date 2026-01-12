@@ -13,7 +13,7 @@ const sectors = [
 
 const SectorsSection = () => {
   return (
-    <section id="clientes" className="bg-card section-padding">
+    <section id="clientes" className="bg-card section-padding relative z-10">
       <div className="container-max">
         {/* Header */}
         <div className="text-center mb-16">
