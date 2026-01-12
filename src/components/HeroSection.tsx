@@ -1,24 +1,19 @@
 import { Button } from "@/components/ui/button";
 import logoWhite from "@/assets/logo-white.png";
 import heroImage from "@/assets/hero-image.jpg";
-
 const HeroSection = () => {
   const scrollToContact = () => {
     const element = document.querySelector("#contacto");
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({
+        behavior: "smooth"
+      });
     }
   };
-
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay - Fixed on scroll */}
       <div className="fixed inset-0 z-0">
-        <img
-          src={heroImage}
-          alt="Profissionais com fardamento personalizado"
-          className="w-full h-full object-cover"
-        />
+        <img src={heroImage} alt="Profissionais com fardamento personalizado" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-br from-primary/75 via-primary/65 to-primary/80" />
       </div>
 
@@ -27,7 +22,7 @@ const HeroSection = () => {
         <div className="max-w-4xl mx-auto">
 
           {/* Headline */}
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-semibold text-primary-foreground mb-6 leading-tight animate-fade-up animation-delay-200 font-display">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl text-primary-foreground mb-6 leading-tight animate-fade-up animation-delay-200 font-display font-medium">
             Vestimos a sua marca com design, conforto e durabilidade
           </h1>
 
@@ -41,14 +36,12 @@ const HeroSection = () => {
             <Button variant="hero" size="xl" onClick={scrollToContact}>
               Contacte-nos
             </Button>
-            <Button
-              variant="heroOutline"
-              size="xl"
-              onClick={() => {
-                const element = document.querySelector("#sobre");
-                if (element) element.scrollIntoView({ behavior: "smooth" });
-              }}
-            >
+            <Button variant="heroOutline" size="xl" onClick={() => {
+            const element = document.querySelector("#sobre");
+            if (element) element.scrollIntoView({
+              behavior: "smooth"
+            });
+          }}>
               Saiba Mais
             </Button>
           </div>
@@ -61,8 +54,6 @@ const HeroSection = () => {
           <div className="w-1.5 h-3 bg-primary-foreground/70 rounded-full mt-2" />
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
