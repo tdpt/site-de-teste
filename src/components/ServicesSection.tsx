@@ -1,38 +1,43 @@
-import { Palette, Shirt, Factory, Truck, Users, Leaf } from "lucide-react";
+import serviceDesign from "@/assets/service-design.jpg";
+import serviceMaterials from "@/assets/service-materials.jpg";
+import serviceProduction from "@/assets/service-production.jpg";
+import serviceLogistics from "@/assets/service-logistics.jpg";
+import serviceIntegrated from "@/assets/service-integrated.jpg";
+import serviceSustainability from "@/assets/service-sustainability.jpg";
 
 const services = [
   {
-    icon: Palette,
+    image: serviceDesign,
     title: "Design de Moda Corporativa",
     description:
       "Traduzimos a identidade da sua marca em vestuário profissional distintivo e elegante.",
   },
   {
-    icon: Shirt,
+    image: serviceMaterials,
     title: "Seleção de Materiais",
     description:
       "Tecidos e acabamentos escolhidos para conforto, durabilidade e uso real no dia-a-dia.",
   },
   {
-    icon: Factory,
+    image: serviceProduction,
     title: "Produção Própria e Flexível",
     description:
       "Made in Portugal, desde grandes volumes a pequenas séries e reposições urgentes.",
   },
   {
-    icon: Truck,
+    image: serviceLogistics,
     title: "Logística Eficiente",
     description:
       "Soluções ex-works, entrega em armazém ou just-in-time adaptadas às suas necessidades.",
   },
   {
-    icon: Users,
+    image: serviceIntegrated,
     title: "Serviço Integrado e Próximo",
     description:
       "Um único parceiro que gere todo o processo, com acompanhamento personalizado.",
   },
   {
-    icon: Leaf,
+    image: serviceSustainability,
     title: "Sustentabilidade 360º",
     description:
       "Recolha em fim de vida e iniciativas de economia circular para um futuro mais verde.",
@@ -56,17 +61,23 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="card-elevated p-8 group"
+              className="card-elevated overflow-hidden group"
             >
-              <div className="w-18 h-18 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
-                <service.icon className="w-10 h-10 text-primary group-hover:text-accent transition-colors" strokeWidth={1.5} />
+              <div className="h-48 overflow-hidden">
+                <img 
+                  src={service.image} 
+                  alt={service.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-3">
-                {service.title}
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                {service.description}
-              </p>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-foreground mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
