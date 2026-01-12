@@ -58,6 +58,15 @@ const ContactSection = () => {
                   <div className="font-medium text-foreground">Morada</div>
                   <div className="text-muted-foreground text-sm">
                     Rua Bernardim Ribeiro 119, 4465-043 S. Mamede Infesta
+                    {" · "}
+                    <a
+                      href="https://maps.google.com/?q=Rua+Bernardim+Ribeiro+119,+4465-043+S.+Mamede+Infesta,+Portugal"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-accent hover:underline"
+                    >
+                      Google Maps
+                    </a>
                   </div>
                 </div>
               </div>
