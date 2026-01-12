@@ -58,8 +58,8 @@ const ServicesSection = () => {
               key={index}
               className="card-elevated p-8 group"
             >
-              <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
-                <service.icon className="w-7 h-7 text-primary group-hover:text-accent transition-colors" />
+              <div className="w-18 h-18 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
+                <service.icon className="w-10 h-10 text-primary group-hover:text-accent transition-colors" strokeWidth={1.5} />
               </div>
               <h3 className="text-xl font-semibold text-foreground mb-3">
                 {service.title}

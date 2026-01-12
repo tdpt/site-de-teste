@@ -33,7 +33,7 @@ const HeroSection = () => {
           </div>
 
           {/* Headline */}
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-semibold text-primary-foreground mb-6 leading-tight animate-fade-up animation-delay-200">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-semibold text-primary-foreground mb-6 leading-tight animate-fade-up animation-delay-200 font-display">
             Vestimos a sua marca com design, conforto e durabilidade
           </h1>
 
