@@ -30,8 +30,8 @@
     --muted: 210 15% 93%;
     --muted-foreground: 203 20% 45%;
 
-    /* Accent - Light Orange */
-    --accent: 25 85% 57%;
+    /* Accent - MAGIA Red */
+    --accent: 0 72% 45%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -73,7 +73,7 @@
     --secondary-foreground: 210 40% 98%;
     --muted: 203 30% 20%;
     --muted-foreground: 210 20% 65%;
-    --accent: 25 85% 57%;
+    --accent: 0 72% 45%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
