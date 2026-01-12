@@ -38,7 +38,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contacto" className="bg-card section-padding">
+    <section id="contacto" className="bg-card section-padding relative z-10">
       <div className="container-max">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Left - Info */}

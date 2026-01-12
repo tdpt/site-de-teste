@@ -12,25 +12,19 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
+      {/* Background Image with Overlay - Fixed on scroll */}
+      <div className="fixed inset-0 z-0">
         <img
           src={heroImage}
           alt="Profissionais com fardamento personalizado"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/85 to-primary/95" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/75 via-primary/65 to-primary/80" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 container-max section-padding text-center">
         <div className="max-w-4xl mx-auto">
-          {/* Logo */}
-          <div className="mb-8 animate-fade-up">
-            <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground tracking-wide" style={{ fontFamily: "'Inter', sans-serif" }}>
-              MAGIA
-            </span>
-          </div>
 
           {/* Headline */}
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-semibold text-primary-foreground mb-6 leading-tight animate-fade-up animation-delay-200 font-display">
