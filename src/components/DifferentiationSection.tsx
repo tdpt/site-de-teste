@@ -3,33 +3,33 @@ import { Sparkles, Settings, Handshake, Clock, Award, Recycle } from "lucide-rea
 const differentiators = [
   {
     icon: Sparkles,
-    title: "Personalização Total",
-    description: "Design exclusivo que reflete a identidade única da sua marca",
+    title: "Customização Total",
+    description: "Fardas criadas à medida da imagem e necessidades de cada cliente",
   },
   {
     icon: Settings,
     title: "Flexibilidade Operacional",
-    description: "Adaptamo-nos às suas necessidades de volume e prazos",
+    description: "Adaptação rápida a quantidades, timings e necessidades.",
   },
   {
     icon: Handshake,
     title: "Serviço Integrado",
-    description: "Acompanhamento completo do conceito à entrega final",
+    description: "Gestão de todo o processo desde o design até à entrega final.",
   },
   {
     icon: Clock,
-    title: "Proximidade e Rapidez",
-    description: "Respostas ágeis e execução eficiente Made in Portugal",
+    title: "Proximidade e Rapidez na Execução",
+    description: "Processos ágeis e comunicação direta.",
   },
   {
     icon: Award,
     title: "Experiência Comprovada",
-    description: "Mais de 30 anos a vestir marcas de referência",
+    description: "Mais de 30 anos no mercado, aliando conhecimento técnico com visão prática.",
   },
   {
     icon: Recycle,
     title: "Sustentabilidade",
-    description: "Compromisso com práticas responsáveis e economia circular",
+    description: "Materiais responsáveis e processos que reduzem desperdício.",
   },
 ];
 
