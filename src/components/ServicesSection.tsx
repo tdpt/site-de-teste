@@ -69,7 +69,7 @@ const ServicesSection = () => {
                   alt={service.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-primary/30 group-hover:bg-primary/20 transition-colors" />
+                <div className="absolute inset-0 bg-primary/60 group-hover:bg-primary/50 transition-colors" />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-foreground mb-3">
