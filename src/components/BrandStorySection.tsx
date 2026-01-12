@@ -40,12 +40,13 @@ const BrandStorySection = () => {
 
           {/* Image */}
           <div className="order-1 lg:order-2">
-            <div className="relative">
+            <div className="relative group">
               <img
                 src={brandStoryImage}
                 alt="Atelier MAGIA - Produção Made in Portugal"
                 className="w-full h-auto rounded-2xl shadow-xl"
               />
+              <div className="absolute inset-0 bg-primary/30 rounded-2xl group-hover:bg-primary/20 transition-colors" />
               {/* Experience Badge */}
               <div className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground p-6 rounded-xl shadow-lg hidden md:block">
                 <div className="text-4xl font-bold">30+</div>
