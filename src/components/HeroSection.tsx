@@ -14,7 +14,7 @@ const HeroSection = () => {
       {/* Background Image with Overlay - Fixed on scroll */}
       <div className="fixed inset-0 z-0">
         <img src={heroImage} alt="Profissionais com fardamento personalizado" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-primary/80" />
+        <div className="absolute inset-0 bg-primary/85" />
       </div>
 
       {/* Content */}
