@@ -1,7 +1,5 @@
 import { Linkedin, Instagram, Facebook, Mail, Phone, MapPin } from "lucide-react";
-import FormspreeForm from "./forms/FormspreeForm";
 import EmailJSForm from "./forms/EmailJSForm";
-import Web3FormsForm from "./forms/Web3FormsForm";
 
 const ContactSection = () => {
   return (
@@ -99,21 +97,9 @@ const ContactSection = () => {
           </div>
         </div>
 
-        {/* Test Forms Header */}
-        <div className="mb-8">
-          <h3 className="text-xl font-semibold text-foreground mb-2">
-            🧪 Teste de Soluções de Formulários
-          </h3>
-          <p className="text-muted-foreground text-sm">
-            Compare as 3 soluções abaixo. Cada uma precisa de configuração própria (ver instruções no erro).
-          </p>
-        </div>
-
-        {/* Three Forms Grid */}
-        <div className="grid md:grid-cols-3 gap-6">
-          <FormspreeForm />
+        {/* Contact Form */}
+        <div className="max-w-xl">
           <EmailJSForm />
-          <Web3FormsForm />
         </div>
       </div>
     </section>

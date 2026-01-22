@@ -34,7 +34,7 @@ const EmailJSForm = () => {
           user_id: PUBLIC_KEY,
           template_params: {
             to: "info@tecladigital.info",
-            title: "Nova mensagem do formulário de contacto",
+            title: "Nova mensagem do formulário de contacto | Magia.pt",
             name: formData.name,
             email: formData.email,
             message: [
