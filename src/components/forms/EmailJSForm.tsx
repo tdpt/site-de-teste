@@ -46,6 +46,9 @@ const EmailJSForm = () => {
         }),
       });
 
+      const responseText = await response.text();
+      console.log("EmailJS Response:", response.status, responseText);
+
       if (response.ok) {
         toast({
           title: "✅ EmailJS - Sucesso!",
@@ -53,12 +56,14 @@ const EmailJSForm = () => {
         });
         setFormData({ name: "", email: "", company: "", message: "" });
       } else {
-        throw new Error("Erro no envio");
+        console.error("EmailJS Error:", response.status, responseText);
+        throw new Error(responseText || "Erro no envio");
       }
     } catch (error) {
+      console.error("EmailJS Exception:", error);
       toast({
         title: "❌ EmailJS - Erro",
-        description: "Configure os IDs no código. Registe-se em emailjs.com",
+        description: error instanceof Error ? error.message : "Erro desconhecido. Verifique a consola.",
         variant: "destructive",
       });
     } finally {
