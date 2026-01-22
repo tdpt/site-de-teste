@@ -80,15 +80,9 @@ const EmailJSForm = () => {
 
   return (
     <div className="bg-secondary rounded-2xl p-6 lg:p-8">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-3 h-3 rounded-full bg-orange-500"></div>
-        <h3 className="text-lg font-semibold text-foreground">
-          EmailJS
-        </h3>
-      </div>
-      <p className="text-xs text-muted-foreground mb-4">
-        Envia emails diretamente do frontend. Precisa de Service, Template e Public Key.
-      </p>
+      <h3 className="text-xl font-semibold text-foreground mb-6">
+        Formulário de Contacto
+      </h3>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <Input
