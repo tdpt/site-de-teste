@@ -33,10 +33,14 @@ const EmailJSForm = () => {
           template_id: TEMPLATE_ID,
           user_id: PUBLIC_KEY,
           template_params: {
-            from_name: formData.name,
-            from_email: formData.email,
-            company: formData.company,
-            message: formData.message,
+            subject: "Nova mensagem do formulário de contacto",
+            reply_to: formData.email,
+            message: [
+              `Nome: ${formData.name}`,
+              `Email: ${formData.email}`,
+              `Empresa: ${formData.company || "Não indicada"}`,
+              `Mensagem: ${formData.message}`,
+            ].join("\n"),
           },
         }),
       });
