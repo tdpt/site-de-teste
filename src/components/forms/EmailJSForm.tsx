@@ -19,10 +19,9 @@ const EmailJSForm = () => {
     setIsSubmitting(true);
 
     try {
-      // EmailJS configuration - replace with your actual IDs
-      const SERVICE_ID = "YOUR_SERVICE_ID";
-      const TEMPLATE_ID = "YOUR_TEMPLATE_ID";
-      const PUBLIC_KEY = "YOUR_PUBLIC_KEY";
+      const SERVICE_ID = "service_j9blovp";
+      const TEMPLATE_ID = "template_eec1gdh";
+      const PUBLIC_KEY = "R02ysBh1ZYQjkiNuh";
 
       const response = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
         method: "POST",
