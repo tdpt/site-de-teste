@@ -33,8 +33,9 @@ const EmailJSForm = () => {
           template_id: TEMPLATE_ID,
           user_id: PUBLIC_KEY,
           template_params: {
-            subject: "Nova mensagem do formulário de contacto",
-            reply_to: formData.email,
+            title: "Nova mensagem do formulário de contacto",
+            name: formData.name,
+            email: formData.email,
             message: [
               `Nome: ${formData.name}`,
               `Email: ${formData.email}`,
