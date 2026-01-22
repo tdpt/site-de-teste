@@ -19,8 +19,7 @@ const Web3FormsForm = () => {
     setIsSubmitting(true);
 
     try {
-      // Replace with your Web3Forms access key
-      const ACCESS_KEY = "YOUR_ACCESS_KEY";
+      const ACCESS_KEY = "b884d851-4e40-4058-bcea-c2db05f78661";
 
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
@@ -29,11 +28,12 @@ const Web3FormsForm = () => {
         },
         body: JSON.stringify({
           access_key: ACCESS_KEY,
+          to: "info@tecladigital.info",
           name: formData.name,
           email: formData.email,
           company: formData.company,
           message: formData.message,
-          subject: "Nova mensagem do website",
+          subject: "Nova mensagem do website - Tecla Digital",
         }),
       });
 
