@@ -1,4 +1,4 @@
-import logoWhite from "@/assets/logo-white.png";
+import logo from "@/assets/logo.svg";
 
 const Footer = () => {
   return (
@@ -8,9 +8,9 @@ const Footer = () => {
           {/* Logo & Company Info */}
           <div className="lg:col-span-2">
             <img
-              src={logoWhite}
+              src={logo}
               alt="Site de Teste"
-              className="h-10 w-auto mb-4"
+              className="h-10 w-auto mb-4 brightness-0 invert"
             />
             <p className="text-primary-foreground/70 text-sm leading-relaxed max-w-md mb-4">
               Especialistas em fardamento profissional personalizado.
