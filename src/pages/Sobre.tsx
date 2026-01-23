@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHeader from "@/components/PageHeader";
+import brandStoryImage from "@/assets/brand-story.jpg";
 
 const Sobre = () => {
   return (
@@ -9,6 +10,7 @@ const Sobre = () => {
       <PageHeader 
         title="Sobre Nós" 
         subtitle="Conheça a nossa história e valores"
+        backgroundImage={brandStoryImage}
       />
       
       <main className="flex-1 bg-background">
