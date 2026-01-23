@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import logoBlue from "@/assets/logo-blue.png";
+import logo from "@/assets/logo.svg";
 import { Menu, X } from "lucide-react";
 
 const Header = () => {
@@ -42,9 +42,9 @@ const Header = () => {
       <div className="container-max section-padding !py-4 flex items-center justify-between">
         <a href="#" className="flex items-center">
           <img
-            src={logoBlue}
+            src={logo}
             alt="Site de Teste"
-            className="h-20 md:h-24 lg:h-28 w-auto"
+            className="h-10 md:h-12 w-auto"
           />
         </a>
 
