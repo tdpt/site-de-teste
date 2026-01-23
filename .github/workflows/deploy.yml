@@ -1,0 +1,41 @@
+name: Deploy to GitHub Pages          # Nome do workflow (aparece no GitHub Actions)
+
+on:
+  push:
+    branches: ["main"]                # Executa quando há push na branch main
+
+permissions:
+  contents: read                      # Permissão para ler o código
+  pages: write                        # Permissão para escrever no GitHub Pages
+  id-token: write                     # Permissão para autenticação
+
+jobs:
+  build:                              # TAREFA 1: Construir o site
+    runs-on: ubuntu-latest            # Usa uma máquina Linux
+    steps:
+      - uses: actions/checkout@v4     # Faz download do código do repo
+      - uses: actions/setup-node@v4   # Instala Node.js
+        with:
+          node-version: '20'          # Versão 20 do Node
+      - run: npm ci                   # Instala dependências
+      - run: npm run build            # Compila o projeto (gera pasta /dist)
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist                # Guarda a pasta /dist para deploy
+
+  deploy:                             # TAREFA 2: Publicar o site
+    needs: build                      # Só corre depois do build terminar
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}  # URL final do site
+    steps:
+      - uses: actions/deploy-pages@v4 # Publica no GitHub Pages
+        id: deployment
+```
+
+---
+
+## Resumo Visual
+```
+Push no GitHub → Build (npm run build) → Deploy no GitHub Pages
