@@ -2,16 +2,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHeader from "@/components/PageHeader";
 import brandStoryImage from "@/assets/brand-story.jpg";
-
 const Sobre = () => {
-  return (
-    <div className="min-h-screen flex flex-col">
+  return <div className="min-h-screen flex flex-col">
       <Header />
-      <PageHeader 
-        title="Sobre Nós" 
-        subtitle="Conheça a nossa história e valores"
-        backgroundImage={brandStoryImage}
-      />
+      <PageHeader title="Sobre Nós" subtitle="Conheça a nossa história e valores" backgroundImage={brandStoryImage} />
       
       <main className="flex-1 bg-background">
         <section className="container-max section-padding py-16 md:py-24">
@@ -63,37 +57,40 @@ const Sobre = () => {
         </section>
 
         {/* Team Section */}
-        <section className="bg-muted/30 py-16 md:py-24">
+        <section className="py-16 md:py-0 bg-muted">
           <div className="container-max section-padding">
             <h2 className="text-3xl font-bold text-foreground mb-12 text-center">A Nossa Equipa</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
-              {[
-                { name: "Maria Silva", role: "Diretora Geral", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face" },
-                { name: "João Santos", role: "Diretor de Produção", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face" },
-                { name: "Ana Costa", role: "Diretora Criativa", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face" },
-                { name: "Pedro Oliveira", role: "Diretor Comercial", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face" },
-              ].map((member, index) => (
-                <div key={index} className="text-center group">
+              {[{
+              name: "Maria Silva",
+              role: "Diretora Geral",
+              image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face"
+            }, {
+              name: "João Santos",
+              role: "Diretor de Produção",
+              image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face"
+            }, {
+              name: "Ana Costa",
+              role: "Diretora Criativa",
+              image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face"
+            }, {
+              name: "Pedro Oliveira",
+              role: "Diretor Comercial",
+              image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face"
+            }].map((member, index) => <div key={index} className="text-center group">
                   <div className="relative w-40 h-40 mx-auto mb-4 rounded-full overflow-hidden">
-                    <img 
-                      src={member.image} 
-                      alt={member.name}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                    />
+                    <img src={member.image} alt={member.name} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
                     <div className="absolute inset-0 bg-primary/20 group-hover:bg-primary/10 transition-colors duration-300" />
                   </div>
                   <h3 className="text-lg font-semibold text-foreground">{member.name}</h3>
                   <p className="text-muted-foreground">{member.role}</p>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
         </section>
       </main>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Sobre;
