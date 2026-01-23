@@ -34,6 +34,7 @@ const CloudflareForm = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [acceptedPrivacy, setAcceptedPrivacy] = useState(false);
 
   const fileToBase64 = (file: File): Promise<string> => {
     return new Promise((resolve, reject) => {
@@ -134,6 +135,7 @@ const CloudflareForm = () => {
           message: ""
         });
         setSelectedFile(null);
+        setAcceptedPrivacy(false);
         if (fileInputRef.current) {
           fileInputRef.current.value = "";
         }
@@ -211,7 +213,23 @@ const CloudflareForm = () => {
             </div>
           )}
         </div>
-        <Button type="submit" variant="hero" size="lg" className="w-full" disabled={isSubmitting}>
+        <div className="flex items-start gap-2">
+          <input
+            type="checkbox"
+            id="privacy-policy"
+            checked={acceptedPrivacy}
+            onChange={(e) => setAcceptedPrivacy(e.target.checked)}
+            required
+            className="mt-1 h-4 w-4 rounded border-input accent-primary"
+          />
+          <label htmlFor="privacy-policy" className="text-sm text-muted-foreground">
+            Li e aceito a{" "}
+            <a href="#" className="text-primary underline hover:text-primary/80 transition-colors">
+              política de privacidade
+            </a>
+          </label>
+        </div>
+        <Button type="submit" variant="hero" size="lg" className="w-full" disabled={isSubmitting || !acceptedPrivacy}>
           {isSubmitting ? "A enviar..." : "Enviar Mensagem"}
         </Button>
       </form>
