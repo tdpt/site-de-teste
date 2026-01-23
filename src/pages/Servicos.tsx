@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHeader from "@/components/PageHeader";
 import { CheckCircle } from "lucide-react";
+import serviceProductionImage from "@/assets/service-production.jpg";
 
 const services = [
   {
@@ -63,6 +64,7 @@ const Servicos = () => {
       <PageHeader 
         title="Serviços" 
         subtitle="Descubra o que podemos fazer por si"
+        backgroundImage={serviceProductionImage}
       />
       
       <main className="flex-1 bg-background">
