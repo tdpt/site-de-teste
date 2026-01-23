@@ -9,16 +9,11 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <img
               src={logoWhite}
-              alt="MAGIA"
+              alt="Site de Teste"
               className="h-10 w-auto mb-4"
             />
             <p className="text-primary-foreground/70 text-sm leading-relaxed max-w-md mb-4">
-              Magia – J.M. Magalhães & Rui Silva, Lda.
-              <br />
-              Especialistas em fardamento profissional personalizado desde 1986.
-            </p>
-            <p className="text-primary-foreground/60 text-sm">
-              NIF: 501700390
+              Especialistas em fardamento profissional personalizado.
             </p>
           </div>
 
@@ -67,7 +62,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-primary-foreground/10">
           <p className="text-primary-foreground/50 text-sm text-center">
-            © {new Date().getFullYear()} MAGIA – J.M. Magalhães & Rui Silva, Lda. Todos os direitos reservados.
+            © {new Date().getFullYear()} Site de Teste. Todos os direitos reservados.
           </p>
         </div>
       </div>

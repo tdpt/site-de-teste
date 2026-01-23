@@ -5,7 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
 
-/* MAGIA Corporate Design System */
+/* Corporate Design System */
 @layer base {
   :root {
     /* Primary Brand - Deep Corporate Blue */
@@ -30,7 +30,7 @@
     --muted: 210 15% 93%;
     --muted-foreground: 203 20% 45%;
 
-    /* Accent - MAGIA Red */
+    /* Accent - Brand Red */
     --accent: 0 72% 45%;
     --accent-foreground: 0 0% 100%;
 
