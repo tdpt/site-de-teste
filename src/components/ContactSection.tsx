@@ -1,5 +1,6 @@
 import { Linkedin, Instagram, Facebook, Mail, Phone, MapPin } from "lucide-react";
 import EmailJSForm from "./forms/EmailJSForm";
+import CloudflareForm from "./forms/CloudflareForm";
 
 const ContactSection = () => {
   return (
@@ -98,9 +99,10 @@ const ContactSection = () => {
             </div>
           </div>
 
-          {/* Right Column - Contact Form */}
-          <div>
+          {/* Right Column - Contact Forms */}
+          <div className="space-y-8">
             <EmailJSForm />
+            <CloudflareForm />
           </div>
         </div>
       </div>
