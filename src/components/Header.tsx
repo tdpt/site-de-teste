@@ -72,7 +72,7 @@ const Header = () => {
           <img
             src={logo}
             alt="Site de Teste"
-            className={`h-8 md:h-10 w-auto transition-all duration-300 ${
+            className={`h-10 md:h-12 w-auto transition-all duration-300 ${
               isScrolled ? "" : "brightness-0 invert"
             }`}
           />
