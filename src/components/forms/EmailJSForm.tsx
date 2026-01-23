@@ -73,6 +73,27 @@ const EmailJSForm = () => {
       [e.target.name]: e.target.value
     });
   };
-  return;
+  return (
+    <div className="bg-secondary rounded-2xl p-6 lg:p-8">
+      <h3 className="text-xl font-semibold text-foreground mb-6">Formulário de Contacto (EmailJS)</h3>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div>
+          <Input name="name" value={formData.name} onChange={handleChange} required placeholder="Nome *" className="bg-card" />
+        </div>
+        <div>
+          <Input name="email" type="email" value={formData.email} onChange={handleChange} required placeholder="Email *" className="bg-card" />
+        </div>
+        <div>
+          <Input name="company" value={formData.company} onChange={handleChange} placeholder="Empresa" className="bg-card" />
+        </div>
+        <div>
+          <Textarea name="message" value={formData.message} onChange={handleChange} required placeholder="Mensagem *" rows={4} className="bg-card resize-none" />
+        </div>
+        <Button type="submit" variant="hero" size="lg" className="w-full" disabled={isSubmitting}>
+          {isSubmitting ? "A enviar..." : "Enviar Mensagem"}
+        </Button>
+      </form>
+    </div>
+  );
 };
 export default EmailJSForm;
