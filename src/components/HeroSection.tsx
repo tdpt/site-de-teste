@@ -22,7 +22,7 @@ const HeroSection = () => {
         <div className="max-w-4xl mx-auto">
 
           {/* Headline */}
-          <h1 className="text-3xl md:text-5xl lg:text-6xl text-primary-foreground mb-6 leading-tight animate-fade-up animation-delay-200 font-display font-medium">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl text-primary-foreground mb-6 leading-tight animate-fade-up animation-delay-200 font-display font-bold">
             Vestimos a sua marca com design, conforto e durabilidade
           </h1>
 
