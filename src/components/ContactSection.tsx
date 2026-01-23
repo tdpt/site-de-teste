@@ -42,10 +42,10 @@ const ContactSection = () => {
                 <div>
                   <div className="font-medium text-foreground">Email</div>
                   <a
-                    href="mailto:geral@magia.pt"
+                    href="mailto:info@exemplo.pt"
                     className="text-muted-foreground text-sm hover:text-accent transition-colors"
                   >
-                    geral@magia.pt
+                    info@exemplo.pt
                   </a>
                 </div>
               </div>

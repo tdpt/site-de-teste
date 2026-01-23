@@ -43,7 +43,7 @@ const Header = () => {
         <a href="#" className="flex items-center">
           <img
             src={logoBlue}
-            alt="MAGIA"
+            alt="Site de Teste"
             className="h-20 md:h-24 lg:h-28 w-auto"
           />
         </a>

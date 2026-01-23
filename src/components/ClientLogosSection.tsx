@@ -18,7 +18,7 @@ const ClientLogosSection = () => {
     <section className="bg-secondary py-12 overflow-hidden relative z-10">
       <div className="container-max mb-8">
         <p className="text-center text-muted-foreground text-sm uppercase tracking-wider font-medium">
-          Empresas que confiam na MAGIA
+          Empresas que confiam em nós
         </p>
       </div>
 

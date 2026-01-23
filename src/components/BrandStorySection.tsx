@@ -16,12 +16,12 @@ const BrandStorySection = () => {
           {/* Content */}
           <div className="order-2 lg:order-1">
             <h2 className="section-title mb-6">
-              A Magia que acompanha gerações
+              Uma história que acompanha gerações
             </h2>
 
             <div className="space-y-5 text-muted-foreground leading-relaxed">
               <p>
-                A Magia nasceu na moda antes de se especializar, em 1986, no universo das fardas e uniformes. Esse histórico capacita-nos hoje com algo raro no setor: sensibilidade estética, consistência técnica, e uma assinatura distinta.
+                Nascemos na moda antes de nos especializarmos no universo das fardas e uniformes. Esse histórico capacita-nos hoje com algo raro no setor: sensibilidade estética, consistência técnica, e uma assinatura distinta.
               </p>
               <p>
                 Acreditamos que uma farda é muito mais do que vestuário - é identidade, confiança e comunicação direta com o cliente. Por isso, criamos peças que traduzem o ADN de cada marca, combinando design, funcionalidade e conforto autêntico no dia-a-dia.
@@ -43,7 +43,7 @@ const BrandStorySection = () => {
             <div className="relative group">
               <img
                 src={brandStoryImage}
-                alt="Atelier MAGIA - Produção Made in Portugal"
+                alt="Atelier - Produção Made in Portugal"
                 className="w-full h-auto rounded-2xl shadow-xl"
               />
               <div className="absolute inset-0 bg-primary/50 rounded-2xl group-hover:bg-primary/40 transition-colors" />
