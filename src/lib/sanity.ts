@@ -4,6 +4,11 @@ const API_VERSION = "2024-01-01";
 
 const SANITY_API_URL = `https://${PROJECT_ID}.api.sanity.io/v${API_VERSION}/data/query/${DATASET}`;
 
+export interface SanityCategory {
+  title: string;
+  slug?: { current: string };
+}
+
 export interface SanityPost {
   _id: string;
   title: string;
@@ -15,10 +20,12 @@ export interface SanityPost {
     };
   };
   body?: any[];
+  categories?: SanityCategory[];
 }
 
 export interface SanityPostDetail extends SanityPost {
   body: any[];
+  categories?: SanityCategory[];
 }
 
 // Convert Sanity image reference to URL
@@ -51,7 +58,8 @@ export const fetchPostBySlug = async (slug: string): Promise<SanityPostDetail | 
     slug,
     publishedAt,
     mainImage,
-    body
+    body,
+    "categories": categories[]->{ title, slug }
   }`);
 
   const response = await fetch(`${SANITY_API_URL}?query=${query}`);
