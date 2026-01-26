@@ -1,6 +1,8 @@
+import { ReactNode } from "react";
+
 interface PageHeaderProps {
   title: string;
-  subtitle?: string;
+  subtitle?: ReactNode;
   backgroundImage?: string;
 }
 
@@ -16,7 +18,7 @@ const PageHeader = ({ title, subtitle, backgroundImage }: PageHeaderProps) => {
       } : undefined}
     >
       {/* Overlay */}
-      <div className={`absolute inset-0 ${backgroundImage ? 'bg-primary/80' : 'bg-primary'}`} />
+      <div className={`absolute inset-0 ${backgroundImage ? 'bg-primary/90' : 'bg-primary'}`} />
       
       <div className="container-max section-padding text-center relative z-10">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white uppercase tracking-wide">

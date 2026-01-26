@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageHeader from "@/components/PageHeader";
 import { Skeleton } from "@/components/ui/skeleton";
-import { ArrowLeft } from "lucide-react";
 import { fetchPostBySlug, urlFor, SanityPostDetail } from "@/lib/sanity";
 
 // Simple portable text renderer
@@ -86,60 +86,90 @@ const BlogPost = () => {
     });
   };
 
+  // Build subtitle with date and category breadcrumb
+  const buildSubtitle = () => {
+    if (!post) return "";
+    
+    const date = formatDate(post.publishedAt);
+    const categoryName = post.categories?.[0]?.title;
+    
+    if (categoryName) {
+      return `${date} | Blog > ${categoryName}`;
+    }
+    return date;
+  };
+
   return (
     <div className="min-h-screen">
       <Header />
-      <main className="pt-24 pb-16">
-        <article className="container-max max-w-3xl mx-auto px-4">
-          <Link
-            to="/blog"
-            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors mb-8"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Voltar ao Blog
-          </Link>
-
-          {loading ? (
-            <div>
-              <Skeleton className="h-8 w-32 mb-4" />
-              <Skeleton className="h-12 w-full mb-2" />
-              <Skeleton className="h-12 w-3/4 mb-8" />
-              <Skeleton className="h-64 w-full mb-8" />
-              <Skeleton className="h-4 w-full mb-2" />
-              <Skeleton className="h-4 w-full mb-2" />
-              <Skeleton className="h-4 w-2/3" />
-            </div>
-          ) : error ? (
-            <div className="text-center py-12">
-              <p className="text-muted-foreground">{error}</p>
-              <Link to="/blog" className="text-primary hover:underline mt-4 inline-block">
-                Voltar ao Blog
-              </Link>
-            </div>
-          ) : post ? (
-            <>
-              <header className="mb-8">
-                <p className="text-muted-foreground mb-2">
+      <main>
+        {loading ? (
+          <>
+            <section className="min-h-[40vh] flex items-center justify-center pt-20 relative">
+              <div className="absolute inset-0 bg-primary" />
+              <div className="container-max section-padding text-center relative z-10">
+                <Skeleton className="h-12 w-3/4 mx-auto mb-4 bg-white/20" />
+                <Skeleton className="h-6 w-1/2 mx-auto bg-white/20" />
+              </div>
+            </section>
+            <section className="section-padding bg-background">
+              <article className="container-max max-w-3xl mx-auto">
+                <Skeleton className="h-64 w-full mb-8" />
+                <Skeleton className="h-4 w-full mb-2" />
+                <Skeleton className="h-4 w-full mb-2" />
+                <Skeleton className="h-4 w-2/3" />
+              </article>
+            </section>
+          </>
+        ) : error ? (
+          <>
+            <PageHeader title="Artigo não encontrado" />
+            <section className="section-padding bg-background">
+              <div className="container-max text-center py-12">
+                <p className="text-muted-foreground mb-4">{error}</p>
+                <Link to="/blog" className="text-primary hover:underline">
+                  Voltar ao Blog
+                </Link>
+              </div>
+            </section>
+          </>
+        ) : post ? (
+          <>
+            <PageHeader
+              title={post.title}
+              subtitle={
+                <span>
                   {formatDate(post.publishedAt)}
-                </p>
-                <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-                  {post.title}
-                </h1>
+                  {post.categories?.[0]?.title && (
+                    <>
+                      {" | "}
+                      <Link to="/blog" className="hover:underline">Blog</Link>
+                      {" > "}
+                      {post.categories[0].title}
+                    </>
+                  )}
+                </span>
+              }
+              backgroundImage={post.mainImage?.asset?._ref ? urlFor(post.mainImage.asset._ref) : undefined}
+            />
+
+            <section className="section-padding bg-background">
+              <article className="container-max max-w-3xl mx-auto">
                 {post.mainImage?.asset?._ref && (
                   <img
                     src={urlFor(post.mainImage.asset._ref)}
                     alt={post.title}
-                    className="w-full rounded-lg"
+                    className="w-full rounded-lg mb-8"
                   />
                 )}
-              </header>
 
-              <div className="prose prose-lg max-w-none text-foreground">
-                {post.body?.map((block, index) => renderBlock(block, index))}
-              </div>
-            </>
-          ) : null}
-        </article>
+                <div className="prose prose-lg max-w-none text-foreground">
+                  {post.body?.map((block, index) => renderBlock(block, index))}
+                </div>
+              </article>
+            </section>
+          </>
+        ) : null}
       </main>
       <Footer />
     </div>
