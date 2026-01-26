@@ -8,27 +8,27 @@
 /* Corporate Design System */
 @layer base {
   :root {
-    /* Primary Brand - Deep Corporate Blue */
+    /* Primary Brand - Vibrant Blue #0073e6 */
     --background: 210 20% 98%;
-    --foreground: 203 36% 27%;
+    --foreground: 207 100% 25%;
 
     --card: 0 0% 100%;
-    --card-foreground: 203 36% 27%;
+    --card-foreground: 207 100% 25%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 203 36% 27%;
+    --popover-foreground: 207 100% 25%;
 
-    /* Primary Blue #2D4A5E */
-    --primary: 203 36% 27%;
+    /* Primary Blue #0073e6 - HSL: 207 100% 45% */
+    --primary: 207 100% 45%;
     --primary-foreground: 0 0% 100%;
 
     /* Secondary - Light Grey */
     --secondary: 210 20% 96%;
-    --secondary-foreground: 203 36% 27%;
+    --secondary-foreground: 207 100% 25%;
 
     /* Muted */
     --muted: 210 15% 93%;
-    --muted-foreground: 203 20% 45%;
+    --muted-foreground: 207 50% 40%;
 
     /* Accent - Brand Orange #fa9646 */
     --accent: 32 95% 63%;
@@ -39,15 +39,15 @@
 
     --border: 210 20% 88%;
     --input: 210 20% 88%;
-    --ring: 203 36% 27%;
+    --ring: 207 100% 45%;
 
     --radius: 0.5rem;
 
     /* Custom tokens */
-    --hero-gradient: linear-gradient(135deg, hsl(203 36% 27%) 0%, hsl(203 45% 22%) 100%);
-    --section-overlay: linear-gradient(180deg, hsl(203 36% 27% / 0.85) 0%, hsl(203 36% 27% / 0.92) 100%);
-    --card-shadow: 0 4px 24px -4px hsl(203 36% 27% / 0.08);
-    --card-shadow-hover: 0 12px 40px -8px hsl(203 36% 27% / 0.15);
+    --hero-gradient: linear-gradient(135deg, hsl(207 100% 45%) 0%, hsl(207 100% 35%) 100%);
+    --section-overlay: linear-gradient(180deg, hsl(207 100% 45% / 0.85) 0%, hsl(207 100% 45% / 0.92) 100%);
+    --card-shadow: 0 4px 24px -4px hsl(207 100% 45% / 0.08);
+    --card-shadow-hover: 0 12px 40px -8px hsl(207 100% 45% / 0.15);
     
     /* Sidebar (keeping defaults) */
     --sidebar-background: 0 0% 98%;
@@ -61,24 +61,24 @@
   }
 
   .dark {
-    --background: 203 45% 12%;
+    --background: 207 50% 10%;
     --foreground: 210 40% 98%;
-    --card: 203 40% 15%;
+    --card: 207 45% 13%;
     --card-foreground: 210 40% 98%;
-    --popover: 203 40% 15%;
+    --popover: 207 45% 13%;
     --popover-foreground: 210 40% 98%;
     --primary: 210 40% 98%;
-    --primary-foreground: 203 36% 27%;
-    --secondary: 203 30% 20%;
+    --primary-foreground: 207 100% 45%;
+    --secondary: 207 35% 18%;
     --secondary-foreground: 210 40% 98%;
-    --muted: 203 30% 20%;
+    --muted: 207 35% 18%;
     --muted-foreground: 210 20% 65%;
     --accent: 32 95% 63%;
-    --accent-foreground: 203 36% 27%;
+    --accent-foreground: 207 100% 25%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 203 30% 25%;
-    --input: 203 30% 25%;
+    --border: 207 35% 22%;
+    --input: 207 35% 22%;
     --ring: 210 40% 80%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
