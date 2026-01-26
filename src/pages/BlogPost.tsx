@@ -150,6 +150,7 @@ const BlogPost = () => {
                   )}
                 </span>
               }
+              backgroundImage={post.mainImage?.asset?._ref ? urlFor(post.mainImage.asset._ref) : undefined}
             />
 
             <section className="section-padding bg-background">
