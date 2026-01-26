@@ -23,7 +23,7 @@ const Header = () => {
     { href: "/servicos", label: "Serviços", isPage: true },
     { href: "#diferenciacao", label: "Diferenciação", isPage: false },
     { href: "#clientes", label: "Clientes", isPage: false },
-    { href: "#contacto", label: "Contacto", isPage: false },
+    { href: "/blog", label: "Blog", isPage: true },
   ];
 
   const handleNavClick = (href: string, isPage: boolean) => {
