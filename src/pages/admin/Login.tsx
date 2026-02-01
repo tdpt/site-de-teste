@@ -20,14 +20,16 @@ type LoginFormData = z.infer<typeof loginSchema>;
 
 const Login = () => {
   const navigate = useNavigate();
-  const { signIn, isAdmin, user, isLoading: authLoading } = useAuth();
+  const { signIn, signUp, isAdmin, user, isLoading: authLoading } = useAuth();
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
+  const [isSignUp, setIsSignUp] = useState(false);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema),
   });
@@ -41,27 +43,51 @@ const Login = () => {
   const onSubmit = async (data: LoginFormData) => {
     setIsLoading(true);
     try {
-      const { error } = await signIn(data.email, data.password);
-      
-      if (error) {
-        let message = 'Erro ao fazer login';
-        if (error.message.includes('Invalid login credentials')) {
-          message = 'Email ou password incorretos';
-        } else if (error.message.includes('Email not confirmed')) {
-          message = 'Por favor, confirme o seu email antes de fazer login';
+      if (isSignUp) {
+        const { error } = await signUp(data.email, data.password);
+        
+        if (error) {
+          let message = 'Erro ao criar conta';
+          if (error.message.includes('User already registered')) {
+            message = 'Este email já está registado';
+          }
+          toast({
+            variant: 'destructive',
+            title: 'Erro',
+            description: message,
+          });
+          return;
         }
-        toast({
-          variant: 'destructive',
-          title: 'Erro',
-          description: message,
-        });
-        return;
-      }
 
-      toast({
-        title: 'Sucesso',
-        description: 'Login efetuado com sucesso',
-      });
+        toast({
+          title: 'Conta criada!',
+          description: 'Verifique o seu email para confirmar a conta. Depois contacte o administrador para obter permissões.',
+        });
+        setIsSignUp(false);
+        reset();
+      } else {
+        const { error } = await signIn(data.email, data.password);
+        
+        if (error) {
+          let message = 'Erro ao fazer login';
+          if (error.message.includes('Invalid login credentials')) {
+            message = 'Email ou password incorretos';
+          } else if (error.message.includes('Email not confirmed')) {
+            message = 'Por favor, confirme o seu email antes de fazer login';
+          }
+          toast({
+            variant: 'destructive',
+            title: 'Erro',
+            description: message,
+          });
+          return;
+        }
+
+        toast({
+          title: 'Sucesso',
+          description: 'Login efetuado com sucesso',
+        });
+      }
     } catch (err) {
       toast({
         variant: 'destructive',
@@ -87,7 +113,10 @@ const Login = () => {
         <CardHeader className="text-center">
           <CardTitle className="text-2xl">Backoffice</CardTitle>
           <CardDescription>
-            Faça login para aceder ao painel de administração
+            {isSignUp 
+              ? 'Crie uma conta para solicitar acesso' 
+              : 'Faça login para aceder ao painel de administração'
+            }
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -120,13 +149,29 @@ const Login = () => {
               {isLoading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  A entrar...
+                  {isSignUp ? 'A criar conta...' : 'A entrar...'}
                 </>
               ) : (
-                'Entrar'
+                isSignUp ? 'Criar Conta' : 'Entrar'
               )}
             </Button>
           </form>
+          
+          <div className="mt-4 text-center">
+            <button
+              type="button"
+              onClick={() => {
+                setIsSignUp(!isSignUp);
+                reset();
+              }}
+              className="text-sm text-muted-foreground hover:text-primary underline"
+            >
+              {isSignUp 
+                ? 'Já tem conta? Faça login' 
+                : 'Não tem conta? Crie uma'
+              }
+            </button>
+          </div>
         </CardContent>
       </Card>
     </div>
