@@ -1,15 +1,19 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHeader from "@/components/PageHeader";
 import { Skeleton } from "@/components/ui/skeleton";
 import { supabase } from "@/integrations/supabase/client";
+import { useAuth } from "@/hooks/useAuth";
+import { Pencil } from "lucide-react";
 import type { PortfolioItem } from "@/integrations/supabase/database.types";
 
 const Portfolio = () => {
   const [portfolioItems, setPortfolioItems] = useState<PortfolioItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const { isAdmin } = useAuth();
 
   useEffect(() => {
     const fetchPortfolio = async () => {
@@ -88,16 +92,27 @@ const Portfolio = () => {
                       {item.descricao}
                     </p>
                   )}
-                  {item.link_projeto && (
-                    <a
-                      href={item.link_projeto}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block mt-4 text-sm text-primary hover:underline"
-                    >
-                      Ver projeto →
-                    </a>
-                  )}
+                  <div className="flex items-center gap-4 mt-4">
+                    {item.link_projeto && (
+                      <a
+                        href={item.link_projeto}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-primary hover:underline"
+                      >
+                        Ver projeto →
+                      </a>
+                    )}
+                    {isAdmin && (
+                      <Link
+                        to={`/admin/portfolio/${item.id}`}
+                        className="inline-flex items-center text-xs text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        <Pencil className="h-3 w-3 mr-1" />
+                        Editar
+                      </Link>
+                    )}
+                  </div>
                 </div>
               </article>
             ))}
