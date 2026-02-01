@@ -21,6 +21,7 @@ const Header = () => {
   const navLinks = [
     { href: "/sobre", label: "Sobre", isPage: true },
     { href: "/servicos", label: "Serviços", isPage: true },
+    { href: "/portfolio", label: "Portfólio", isPage: true },
     { href: "#diferenciacao", label: "Diferenciação", isPage: false },
     { href: "#clientes", label: "Clientes", isPage: false },
     { href: "/blog", label: "Blog", isPage: true },
