@@ -14,7 +14,51 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      portfolio2: {
+        Row: {
+          categoria: string | null
+          cliente: string | null
+          created_at: string | null
+          data_projeto: string | null
+          descricao: string | null
+          id: string
+          imagem_url: string | null
+          link_projeto: string | null
+          ordem: number | null
+          titulo: string
+          updated_at: string | null
+          visivel: boolean | null
+        }
+        Insert: {
+          categoria?: string | null
+          cliente?: string | null
+          created_at?: string | null
+          data_projeto?: string | null
+          descricao?: string | null
+          id?: string
+          imagem_url?: string | null
+          link_projeto?: string | null
+          ordem?: number | null
+          titulo: string
+          updated_at?: string | null
+          visivel?: boolean | null
+        }
+        Update: {
+          categoria?: string | null
+          cliente?: string | null
+          created_at?: string | null
+          data_projeto?: string | null
+          descricao?: string | null
+          id?: string
+          imagem_url?: string | null
+          link_projeto?: string | null
+          ordem?: number | null
+          titulo?: string
+          updated_at?: string | null
+          visivel?: boolean | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
