@@ -1,96 +1,44 @@
 
-# Plano: Página de Portfólio com Supabase
+# Correção: Nome da coluna de imagem
 
-## Resumo
+## Problema identificado
+O código está a usar `imagem` mas a coluna na base de dados chama-se `imagem_url`.
 
-Vou criar uma nova página "Portfólio" que lista os trabalhos guardados na tabela `portfolio` do Supabase, e adicionar o menu correspondente na navegação.
-
----
-
-## O que será criado
-
-1. **Novo menu "Portfólio"** no header (entre "Serviços" e "Diferenciação")
-2. **Página de Portfólio** (`/portfolio`) com listagem dos trabalhos em cards
-3. **Integração com Supabase** para buscar os dados da tabela `portfolio`
+## Solução
+Atualizar o tipo TypeScript e a página de Portfólio para usar o nome correto da coluna.
 
 ---
 
-## Passos da implementação
+## Ficheiros a modificar
 
-### 1. Configurar cliente Supabase
-Criar o ficheiro de integração que permite ao site comunicar com a base de dados.
-
-### 2. Criar página Portfolio.tsx
-Uma página semelhante ao Blog, com:
-- Header com título "Portfólio"
-- Grid de cards com os trabalhos
-- Cada card mostra: imagem, título, categoria e descrição
-- Estados de loading e erro
-
-### 3. Atualizar navegação
-- Adicionar link "Portfólio" no Header
-- Adicionar rota no App.tsx
+| Ficheiro | Alteração |
+|----------|-----------|
+| `src/integrations/supabase/database.types.ts` | Mudar `imagem` para `imagem_url` |
+| `src/pages/Portfolio.tsx` | Mudar `item.imagem` para `item.imagem_url` |
 
 ---
 
-## Estrutura esperada da tabela
+## Alterações técnicas
 
-| Coluna | Tipo | Uso |
-|--------|------|-----|
-| id | uuid/int | Identificador único |
-| titulo | text | Título do trabalho |
-| descricao | text | Descrição do trabalho |
-| imagem | text | URL da imagem |
-| categoria | text | Categoria do trabalho |
-
----
-
-## Ficheiros a criar/modificar
-
-| Ficheiro | Ação |
-|----------|------|
-| `src/integrations/supabase/client.ts` | Criar cliente Supabase |
-| `src/integrations/supabase/types.ts` | Criar tipos TypeScript |
-| `src/pages/Portfolio.tsx` | Nova página de portfólio |
-| `src/components/Header.tsx` | Adicionar menu "Portfólio" |
-| `src/App.tsx` | Adicionar rota `/portfolio` |
-
----
-
-## Pré-requisito importante
-
-Antes de implementar, confirme que o Supabase está correctamente conectado ao Lovable através das definições do projeto. A conexão já foi feita, mas o cliente ainda não foi gerado no código.
-
----
-
-## Secção técnica
-
-### Cliente Supabase
+### database.types.ts
 ```typescript
-import { createClient } from '@supabase/supabase-js'
+// Antes
+imagem: string;
 
-const supabaseUrl = "URL_DO_PROJETO"
-const supabaseKey = "ANON_KEY"
-
-export const supabase = createClient(supabaseUrl, supabaseKey)
+// Depois
+imagem_url: string;
 ```
 
-### Query para buscar portfólio
+### Portfolio.tsx
 ```typescript
-const { data, error } = await supabase
-  .from('portfolio')
-  .select('*')
-  .order('created_at', { ascending: false })
+// Antes
+src={item.imagem}
+
+// Depois
+src={item.imagem_url}
 ```
 
-### Tipo TypeScript
-```typescript
-interface PortfolioItem {
-  id: string;
-  titulo: string;
-  descricao: string;
-  imagem: string;
-  categoria: string;
-  created_at?: string;
-}
-```
+---
+
+## Resultado esperado
+Após esta correção, a página de Portfólio deverá carregar correctamente as imagens da base de dados.
