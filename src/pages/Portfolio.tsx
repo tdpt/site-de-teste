@@ -66,7 +66,7 @@ const Portfolio = () => {
               >
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
-                    src={item.imagem}
+                    src={item.imagem_url}
                     alt={item.titulo}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
