@@ -15,9 +15,9 @@ const Portfolio = () => {
     const fetchPortfolio = async () => {
       try {
         const { data, error } = await supabase
-          .from('portfolio')
+          .from('portfolio2')
           .select('*')
-          .order('created_at', { ascending: false });
+          .order('ordem', { ascending: true });
 
         if (error) throw error;
         setPortfolioItems(data || []);
@@ -66,21 +66,38 @@ const Portfolio = () => {
               >
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
-                    src={item.imagem_url}
+                    src={item.imagem_url || '/placeholder.svg'}
                     alt={item.titulo}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
                 <div className="p-6">
-                  <span className="inline-block text-xs font-semibold uppercase tracking-wider text-accent mb-2">
-                    {item.categoria}
-                  </span>
-                  <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                  {item.categoria && (
+                    <span className="inline-block text-xs font-semibold uppercase tracking-wider text-accent mb-2">
+                      {item.categoria}
+                    </span>
+                  )}
+                  <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                     {item.titulo}
                   </h3>
-                  <p className="text-muted-foreground text-sm line-clamp-3">
-                    {item.descricao}
-                  </p>
+                  {item.cliente && (
+                    <p className="text-sm text-primary font-medium mb-2">{item.cliente}</p>
+                  )}
+                  {item.descricao && (
+                    <p className="text-muted-foreground text-sm line-clamp-3">
+                      {item.descricao}
+                    </p>
+                  )}
+                  {item.link_projeto && (
+                    <a
+                      href={item.link_projeto}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block mt-4 text-sm text-primary hover:underline"
+                    >
+                      Ver projeto →
+                    </a>
+                  )}
                 </div>
               </article>
             ))}
