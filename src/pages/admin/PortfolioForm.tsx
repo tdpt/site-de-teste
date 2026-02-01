@@ -9,12 +9,12 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Switch } from '@/components/ui/switch';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
+import { ImageUpload } from '@/components/admin/ImageUpload';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { ArrowLeft, Loader2, Save } from 'lucide-react';
-import type { PortfolioItem } from '@/integrations/supabase/database.types';
 
 const portfolioSchema = z.object({
   titulo: z.string().min(1, 'Título é obrigatório'),
@@ -214,8 +214,13 @@ const PortfolioForm = () => {
                   </div>
                 </div>
 
+                <ImageUpload
+                  value={watch('imagem_url')}
+                  onChange={(url) => setValue('imagem_url', url)}
+                />
+
                 <div className="space-y-2">
-                  <Label htmlFor="imagem_url">URL da Imagem</Label>
+                  <Label htmlFor="imagem_url">Ou URL da Imagem</Label>
                   <Input
                     id="imagem_url"
                     type="url"

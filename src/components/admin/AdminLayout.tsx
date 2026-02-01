@@ -69,13 +69,15 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
         </nav>
 
         <div className="p-4 border-t border-border space-y-2">
-          <Link
-            to="/"
+          <a
+            href="/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
           >
             <Home className="h-4 w-4" />
             Ver Site
-          </Link>
+          </a>
           <Button
             variant="ghost"
             className="w-full justify-start gap-3 text-muted-foreground hover:text-foreground"
