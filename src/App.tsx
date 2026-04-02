@@ -11,6 +11,7 @@ import Portfolio from "./pages/Portfolio";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
+import HLS from "./pages/HLS";
 import Login from "./pages/admin/Login";
 import PortfolioList from "./pages/admin/PortfolioList";
 import PortfolioForm from "./pages/admin/PortfolioForm";
@@ -36,6 +37,7 @@ const App = () => (
             <Route path="/admin/portfolio" element={<PortfolioList />} />
             <Route path="/admin/portfolio/novo" element={<PortfolioForm />} />
             <Route path="/admin/portfolio/:id" element={<PortfolioForm />} />
+            <Route path="/hls" element={<HLS />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

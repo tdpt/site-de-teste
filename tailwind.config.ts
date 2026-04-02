@@ -20,6 +20,8 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['DM Serif Display', 'serif'],
+        body: ['Outfit', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -55,6 +57,24 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        hls: {
+          magenta: '#E21170',
+          'magenta-light': '#F06BA8',
+          'magenta-bg': '#FCE4F0',
+          'magenta-dark': '#B80D5A',
+          purple: '#583192',
+          'purple-light': '#7B52B5',
+          'purple-bg': '#EDE5F5',
+          'purple-dark': '#3F2268',
+          'purple-darker': '#2A1745',
+          dark: '#1A1A1A',
+          body: '#555555',
+          'body-light': '#666666',
+          muted: '#999999',
+          border: '#E5E5E5',
+          'bg-subtle': '#F5F5F5',
+          'bg-off': '#FAFAFA',
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -89,6 +109,7 @@ export default {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "scroll-left": "scroll-left 30s linear infinite",
+        "scroll-logos": "scroll-left 40s linear infinite",
       },
     },
   },
