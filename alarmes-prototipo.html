@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SecurAlarm - Sistemas de Alarme e Segurança</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #1a1a2e; line-height: 1.6; }
+
+    /* NAV */
+    nav { background: #fff; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 22px; color: #0f3460; text-decoration: none; }
+    .logo-icon { width: 38px; height: 38px; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 18px; }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a { text-decoration: none; color: #333; font-weight: 500; font-size: 15px; }
+    .nav-links a:hover { color: #e94560; }
+    .btn { display: inline-block; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 15px; transition: all 0.3s; cursor: pointer; border: none; }
+    .btn-primary { background: #e94560; color: #fff; }
+    .btn-primary:hover { background: #d63050; transform: translateY(-1px); }
+    .btn-outline { border: 2px solid #0f3460; color: #0f3460; background: transparent; }
+    .btn-outline:hover { background: #0f3460; color: #fff; }
+    .btn-nav { padding: 10px 22px; font-size: 14px; }
+
+    /* HERO */
+    .hero { position: relative; min-height: 90vh; display: flex; align-items: center; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; }
+    .hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(15,52,96,0.92) 0%, rgba(15,52,96,0.6) 100%); }
+    .hero-content { position: relative; z-index: 2; padding: 60px 24px; max-width: 700px; margin-left: 8%; }
+    .hero-badge { display: inline-block; background: rgba(233,69,96,0.15); color: #e94560; padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-bottom: 20px; border: 1px solid rgba(233,69,96,0.3); }
+    .hero h1 { font-size: clamp(32px, 5vw, 56px); color: #fff; font-weight: 800; line-height: 1.15; margin-bottom: 20px; }
+    .hero h1 span { color: #e94560; }
+    .hero p { color: rgba(255,255,255,0.85); font-size: 18px; margin-bottom: 32px; max-width: 520px; }
+    .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-stats { display: flex; gap: 40px; margin-top: 48px; }
+    .hero-stat { color: #fff; }
+    .hero-stat-number { font-size: 32px; font-weight: 800; color: #e94560; }
+    .hero-stat-label { font-size: 13px; opacity: 0.8; }
+
+    /* SECTIONS */
+    section { padding: 80px 24px; }
+    .section-header { text-align: center; margin-bottom: 56px; }
+    .section-header h2 { font-size: 36px; font-weight: 800; color: #0f3460; margin-bottom: 12px; }
+    .section-header p { color: #666; font-size: 17px; max-width: 560px; margin: 0 auto; }
+    .container { max-width: 1140px; margin: 0 auto; }
+
+    /* SERVICES */
+    .services-bg { background: #f8f9fd; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; }
+    .service-card { background: #fff; border-radius: 16px; padding: 36px 28px; transition: all 0.3s; border: 1px solid #eee; }
+    .service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); border-color: #e94560; }
+    .service-icon { width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 20px; }
+    .service-card h3 { font-size: 20px; margin-bottom: 10px; color: #0f3460; }
+    .service-card p { color: #666; font-size: 15px; }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .about-img { border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.12); }
+    .about-img img { width: 100%; height: 400px; object-fit: cover; display: block; }
+    .about-content h2 { font-size: 36px; font-weight: 800; color: #0f3460; margin-bottom: 16px; }
+    .about-content p { color: #555; margin-bottom: 24px; font-size: 16px; }
+    .about-list { list-style: none; }
+    .about-list li { padding: 8px 0; display: flex; align-items: center; gap: 12px; font-size: 15px; color: #333; }
+    .about-list li::before { content: "✓"; width: 26px; height: 26px; background: rgba(233,69,96,0.1); color: #e94560; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: bold; flex-shrink: 0; }
+
+    /* PRODUCTS */
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; }
+    .product-card { background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06); transition: all 0.3s; border: 1px solid #eee; }
+    .product-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.1); }
+    .product-img { height: 200px; overflow: hidden; }
+    .product-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+    .product-card:hover .product-img img { transform: scale(1.05); }
+    .product-info { padding: 24px; }
+    .product-info h3 { font-size: 18px; color: #0f3460; margin-bottom: 6px; }
+    .product-info p { color: #666; font-size: 14px; margin-bottom: 16px; }
+    .product-price { font-size: 22px; font-weight: 800; color: #e94560; }
+    .product-price small { font-size: 13px; color: #999; font-weight: 400; }
+
+    /* TESTIMONIALS */
+    .testimonials-bg { background: linear-gradient(135deg, #0f3460, #16213e); }
+    .testimonials-bg .section-header h2 { color: #fff; }
+    .testimonials-bg .section-header p { color: rgba(255,255,255,0.7); }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; }
+    .testimonial-card { background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); border-radius: 16px; padding: 32px; border: 1px solid rgba(255,255,255,0.1); }
+    .testimonial-stars { color: #f5a623; font-size: 16px; margin-bottom: 16px; }
+    .testimonial-card p { color: rgba(255,255,255,0.85); font-size: 15px; font-style: italic; margin-bottom: 20px; line-height: 1.7; }
+    .testimonial-author { display: flex; align-items: center; gap: 12px; }
+    .testimonial-avatar { width: 44px; height: 44px; border-radius: 50%; background: #e94560; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 16px; }
+    .testimonial-name { color: #fff; font-weight: 600; font-size: 15px; }
+    .testimonial-role { color: rgba(255,255,255,0.5); font-size: 13px; }
+
+    /* CTA */
+    .cta-section { background: #f8f9fd; text-align: center; }
+    .cta-box { background: linear-gradient(135deg, #e94560, #d63050); border-radius: 24px; padding: 64px 40px; max-width: 800px; margin: 0 auto; }
+    .cta-box h2 { color: #fff; font-size: 32px; font-weight: 800; margin-bottom: 16px; }
+    .cta-box p { color: rgba(255,255,255,0.9); font-size: 17px; margin-bottom: 32px; }
+    .cta-box .btn { background: #fff; color: #e94560; font-size: 16px; padding: 16px 36px; }
+    .cta-box .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+    .cta-phone { color: #fff; font-size: 28px; font-weight: 800; margin-top: 24px; }
+    .cta-phone a { color: #fff; text-decoration: none; }
+
+    /* FOOTER */
+    footer { background: #0a0a23; color: #fff; padding: 60px 24px 30px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: 1140px; margin: 0 auto; }
+    .footer-about p { color: rgba(255,255,255,0.6); font-size: 14px; margin-top: 12px; line-height: 1.7; }
+    .footer-col h4 { font-size: 15px; margin-bottom: 16px; color: #e94560; }
+    .footer-col a { display: block; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; padding: 4px 0; }
+    .footer-col a:hover { color: #e94560; }
+    .footer-bottom { text-align: center; padding-top: 36px; margin-top: 36px; border-top: 1px solid rgba(255,255,255,0.08); color: rgba(255,255,255,0.4); font-size: 13px; max-width: 1140px; margin-left: auto; margin-right: auto; }
+
+    /* MOBILE */
+    .menu-toggle { display: none; background: none; border: none; font-size: 28px; cursor: pointer; color: #0f3460; }
+    @media (max-width: 768px) {
+      .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #fff; flex-direction: column; padding: 20px; gap: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+      .nav-links.active { display: flex; }
+      .menu-toggle { display: block; }
+      .hero-content { margin-left: 5%; }
+      .hero-stats { gap: 24px; }
+      .hero-stat-number { font-size: 24px; }
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .cta-box { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="#" class="logo">
+      <div class="logo-icon">🛡</div>
+      SecurAlarm
+    </a>
+    <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</button>
+    <div class="nav-links">
+      <a href="#servicos">Serviços</a>
+      <a href="#sobre">Sobre Nós</a>
+      <a href="#produtos">Produtos</a>
+      <a href="#testemunhos">Testemunhos</a>
+      <a href="#contacto" class="btn btn-primary btn-nav">Pedir Orçamento</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=1400&q=80" alt="Smart home security">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">🔒 Líder em Segurança desde 2008</div>
+      <h1>Proteja o que mais <span>importa</span> para si</h1>
+      <p>Sistemas de alarme inteligentes com monitorização 24/7. Instalação profissional e suporte técnico dedicado em todo o país.</p>
+      <div class="hero-buttons">
+        <a href="#contacto" class="btn btn-primary">Pedir Orçamento Grátis</a>
+        <a href="#servicos" class="btn btn-outline" style="border-color:#fff;color:#fff;">Ver Soluções</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-number">15.000+</div>
+          <div class="hero-stat-label">Clientes protegidos</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number">24/7</div>
+          <div class="hero-stat-label">Monitorização</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number">98%</div>
+          <div class="hero-stat-label">Satisfação</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section class="services-bg" id="servicos">
+    <div class="container">
+      <div class="section-header">
+        <h2>Os Nossos Serviços</h2>
+        <p>Soluções completas de segurança para residências e empresas</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon" style="background:rgba(233,69,96,0.1);color:#e94560;">🏠</div>
+          <h3>Alarmes Residenciais</h3>
+          <p>Sistemas de alarme inteligentes para a sua casa, com sensores de movimento, abertura de portas e janelas, e controlo via app.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon" style="background:rgba(15,52,96,0.1);color:#0f3460;">🏢</div>
+          <h3>Alarmes Empresariais</h3>
+          <p>Soluções de segurança profissional para empresas de qualquer dimensão. Controlo de acessos e integração com CCTV.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon" style="background:rgba(76,175,80,0.1);color:#4caf50;">📹</div>
+          <h3>Videovigilância</h3>
+          <p>Câmaras de alta definição com visão noturna e gravação na cloud. Aceda às imagens em tempo real a partir do telemóvel.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon" style="background:rgba(255,152,0,0.1);color:#ff9800;">🔥</div>
+          <h3>Deteção de Incêndio</h3>
+          <p>Sistemas de deteção de fumo e incêndio com alertas automáticos. Proteção certificada para a sua família e negócio.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon" style="background:rgba(156,39,176,0.1);color:#9c27b0;">📱</div>
+          <h3>Domótica e Automação</h3>
+          <p>Integre o seu sistema de alarme com iluminação, estores e climatização. Controle tudo a partir do smartphone.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon" style="background:rgba(0,150,136,0.1);color:#009688;">🛠</div>
+          <h3>Manutenção e Suporte</h3>
+          <p>Equipa técnica disponível para assistência rápida. Contratos de manutenção preventiva com resposta em menos de 4 horas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE NÓS -->
+  <section id="sobre">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-img">
+          <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=800&q=80" alt="Equipa técnica">
+        </div>
+        <div class="about-content">
+          <h2>Mais de 15 anos a proteger famílias e empresas</h2>
+          <p>A SecurAlarm é uma empresa portuguesa especializada em sistemas de segurança electrónica. Trabalhamos com as melhores marcas do mercado e garantimos uma instalação profissional e um acompanhamento contínuo.</p>
+          <ul class="about-list">
+            <li>Equipa técnica certificada e experiente</li>
+            <li>Central de monitorização 24h própria</li>
+            <li>Parceria com as principais marcas europeias</li>
+            <li>Assistência técnica em menos de 4 horas</li>
+            <li>Aplicação móvel gratuita para todos os clientes</li>
+            <li>Sem fidelização — confiamos no nosso serviço</li>
+          </ul>
+          <br>
+          <a href="#contacto" class="btn btn-primary">Fale Connosco</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUTOS -->
+  <section class="services-bg" id="produtos">
+    <div class="container">
+      <div class="section-header">
+        <h2>Kits Populares</h2>
+        <p>Soluções pré-configuradas com instalação incluída</p>
+      </div>
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-img">
+            <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=600&q=80" alt="Kit Básico">
+          </div>
+          <div class="product-info">
+            <h3>Kit Casa Essencial</h3>
+            <p>Central + 3 sensores de movimento + 1 contacto magnético + sirene + app móvel</p>
+            <div class="product-price">€29<small>/mês</small></div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            <img src="https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=600&q=80" alt="Kit Avançado">
+          </div>
+          <div class="product-info">
+            <h3>Kit Casa Completo</h3>
+            <p>Central + 6 sensores + 2 câmaras HD + sirene exterior + app + monitorização 24h</p>
+            <div class="product-price">€49<small>/mês</small></div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=600&q=80" alt="Kit Empresarial">
+          </div>
+          <div class="product-info">
+            <h3>Kit Empresa</h3>
+            <p>Central pro + 12 sensores + 4 câmaras 4K + controlo acessos + monitorização 24h</p>
+            <div class="product-price">€89<small>/mês</small></div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&q=80" alt="Kit Premium">
+          </div>
+          <div class="product-info">
+            <h3>Kit Premium</h3>
+            <p>Solução personalizada com domótica integrada, videovigilância avançada e suporte dedicado</p>
+            <div class="product-price">Sob consulta</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTEMUNHOS -->
+  <section class="testimonials-bg" id="testemunhos">
+    <div class="container">
+      <div class="section-header">
+        <h2>O Que Dizem os Nossos Clientes</h2>
+        <p>A confiança de milhares de famílias e empresas</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"Excelente serviço! A instalação foi rápida e profissional. A aplicação é muito intuitiva e consigo controlar tudo a partir do telemóvel."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">MR</div>
+            <div>
+              <div class="testimonial-name">Maria Rodrigues</div>
+              <div class="testimonial-role">Cliente residencial, Lisboa</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"Temos a SecurAlarm nas nossas 3 lojas. O sistema nunca falhou e o suporte técnico é impecável. Recomendo sem hesitação."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">JF</div>
+            <div>
+              <div class="testimonial-name">João Ferreira</div>
+              <div class="testimonial-role">Proprietário, Rede de Lojas</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"Depois de uma tentativa de assalto, instalámos o sistema completo. Dormimos muito mais descansados. O preço é muito justo para o serviço."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">AS</div>
+            <div>
+              <div class="testimonial-name">Ana e Pedro Silva</div>
+              <div class="testimonial-role">Clientes residenciais, Porto</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / CONTACTO -->
+  <section class="cta-section" id="contacto">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Proteja a sua casa ou empresa hoje</h2>
+        <p>Peça um orçamento gratuito e sem compromisso. A nossa equipa responde em menos de 24 horas.</p>
+        <a href="mailto:info@securalarm.pt" class="btn">Pedir Orçamento Grátis</a>
+        <div class="cta-phone">
+          <a href="tel:+351800200300">800 200 300</a>
+          <div style="font-size:14px;font-weight:400;margin-top:4px;opacity:0.9;">Chamada gratuita</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-about">
+        <div class="logo" style="color:#fff;">
+          <div class="logo-icon">🛡</div>
+          SecurAlarm
+        </div>
+        <p>Empresa portuguesa de referência em sistemas de segurança electrónica. Protegemos famílias e empresas em todo o país desde 2008.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Serviços</h4>
+        <a href="#">Alarmes Residenciais</a>
+        <a href="#">Alarmes Empresariais</a>
+        <a href="#">Videovigilância</a>
+        <a href="#">Deteção de Incêndio</a>
+        <a href="#">Domótica</a>
+      </div>
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <a href="#">Sobre Nós</a>
+        <a href="#">Equipa</a>
+        <a href="#">Carreiras</a>
+        <a href="#">Parceiros</a>
+        <a href="#">Blog</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <a href="#">800 200 300</a>
+        <a href="#">info@securalarm.pt</a>
+        <a href="#">Lisboa, Portugal</a>
+        <a href="#">Seg-Sex: 9h-18h</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2024 SecurAlarm — Todos os direitos reservados. | Protótipo para apresentação.
+    </div>
+  </footer>
+
+</body>
+</html>
